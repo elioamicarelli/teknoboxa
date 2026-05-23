@@ -20,19 +20,19 @@ body {
     margin: 0;
     font-family: 'VT323', monospace;
     display: flex;
-    justify-content: center; /* Center content vertically in column direction */
-    align-items: center;   /* Center content horizontally in column direction */
+    justify-content: flex-start; /* Move content to the top */
+    align-items: center;   /* Center content horizontally */
     min-height: 100vh;
     background-color: #1a0a2a; /* Very dark purple/blue for cyberpunk feel */
     color: #00ff00; /* Neon green default text color */
-    padding: 20px; /* Consistent padding for all screen sizes by default */
+    padding: 5px 20px 20px 20px; /* Minimal top padding */
     flex-direction: column; /* Allow content to flow naturally */
 }
 
 /* Adjust body padding for desktop */
 @media screen and (min-width: 768px) {
     body {
-        padding: 50px; /* More padding on desktop */
+        padding: 5px 50px 50px 50px; /* Minimal top padding */
     }
 }
 
@@ -52,7 +52,7 @@ body {
 }
 
 .text-section {
-    padding: 30px;
+    padding: 0 30px 30px 30px; /* Removed top padding entirely */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,12 +82,37 @@ body {
 }
 
 .text-section .description {
-    font-size: 1.2em; /* Increased font size */
-    line-height: 1.5;
+    font-size: 1.1em;
+    line-height: 1.4;
     color: #00cc00; /* Softer neon green */
     margin-bottom: 25px;
     max-width: 400px; /* Limit description width */
     order: 3; /* Place description last on mobile */
+}
+
+.main-description {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    display: block;
+    margin-bottom: 0;
+    color: #fcfd00; /* Neon yellow to match the title */
+    text-shadow: 0 0 5px #fcfd00;
+}
+
+.sub-description {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
+    color: #ffffff; /* White text */
+    opacity: 0.9;
+    line-height: 1.4;
+    display: block;
+    margin-top: -5px;
+}
+
+.sub-description.second-sentence {
+    margin-top: 10px; /* This creates a gap smaller than two <br> tags but larger than the negative margin */
 }
 
 .game-stats {
@@ -178,12 +203,12 @@ body {
     .content-card {
         flex-direction: row; /* Desktop: side-by-side */
         max-width: 900px; /* Make the card smaller */
-        margin: 50px auto; /* Center the card and add vertical margin */
+        margin: 0 auto; /* Removed vertical margin, kept centering */
     }
 
     .text-section {
         flex: 1;
-        padding: 50px;
+        padding: 0 50px 50px 50px;
         text-align: left; /* Align text left for desktop */
         /* align-items: flex-start; - Removed to allow individual centering */
         order: 0; /* Place text section before image on desktop */
@@ -276,6 +301,10 @@ body {
     .video-title {
         font-size: 2.5em; /* Original size for desktop */
         padding: 0; /* No horizontal padding on desktop, handled by video-section padding */
+    }
+}
+
+ng: 0; /* No horizontal padding on desktop, handled by video-section padding */
     }
 }
 
