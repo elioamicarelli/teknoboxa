@@ -63,22 +63,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup the IntersectionObserver
     const observerOptions = {
         root: null, // Viewport
-        rootMargin: '-35% 0px -35% 0px', // Triggers when the element is in the middle 30% of the screen
+        rootMargin: '-15% 0px -60% 0px', // Triggers when the element is in the middle 10% of the screen
         threshold: 0 // Trigger as soon as it crosses the margin
     };
 
     const titleObserver = new IntersectionObserver((entries) => {
         const intersectingEntries = entries.filter(entry => entry.isIntersecting);
         if (intersectingEntries.length > 0) {
-            // Remove active class from all titles
-            titles.forEach(t => t.classList.remove('scrolled-active'));
-            // Add active class to the most recently intersecting title
-            intersectingEntries[intersectingEntries.length - 1].target.classList.add('scrolled-active');
+            // Find the title that should become active
+            const targetTitle = intersectingEntries[intersectingEntries.length - 1].target;
+            
+            // Only proceed if this title isn't already the active one
+            if (!targetTitle.classList.contains('scrolled-active')) {
+                // Remove active class and any active glitch from all titles
+                titles.forEach(t => {
+                    t.classList.remove('scrolled-active', 'glitch-1', 'glitch-2', 'glitch-3', 'glitch-4');
+                });
+                
+                // Add active class
+                targetTitle.classList.add('scrolled-active');
+                
+                // Apply a one-time glitch effect
+                const glitchType = Math.floor(Math.random() * 4) + 1;
+                const glitchClass = `glitch-${glitchType}`;
+                targetTitle.classList.add(glitchClass);
+                
+                // Remove the glitch quickly
+                const duration = Math.floor(Math.random() * 100) + 50;
+                setTimeout(() => {
+                    targetTitle.classList.remove(glitchClass);
+                }, duration);
+            }
         }
     }, observerOptions);
 
     titles.forEach(title => {
         titleObserver.observe(title);
+    });
+
+    // Clear active effects when at the very top of the page
+    window.addEventListener('scroll', () => {
+        if (window.scrollY === 0) {
+            titles.forEach(t => {
+                t.classList.remove('scrolled-active', 'glitch-1', 'glitch-2', 'glitch-3', 'glitch-4');
+            });
+        }
     });
 });
 
