@@ -279,3 +279,197 @@ body {
     }
 }
 
+<<<<<<< Updated upstream
+=======
+/* Gameplay Section Styles */
+.gameplay-section {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically on mobile */
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px 40px 20px;
+    width: 100%;
+}
+
+.gameplay-image {
+    width: 100%;
+    max-width: 400px; /* Limit image width on mobile */
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8); /* Neon cyan glow */
+}
+
+.gameplay-text {
+    width: 100%;
+    max-width: 500px; /* Limit text width on mobile */
+    text-align: center;
+}
+
+.feature-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Align bullet points left */
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
+}
+
+.feature-list li::before {
+    content: '>'; /* Custom bullet point */
+    color: #fcfd00; /* Neon yellow for bullet */
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.feature-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #fcfd00; /* Neon yellow to match the main description */
+    text-shadow: 0 0 5px #fcfd00;
+    margin-top: 0;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.feature-description {
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: left;
+    margin: 0;
+}
+
+.final-call-to-action {
+    text-align: center;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.final-call-to-action > p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #fcfd00;
+    text-shadow: 0 0 10px rgba(252, 253, 0, 0.5);
+    line-height: 1.4;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.brand-footer {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+    padding: 9 40px 0 20px; /* Increased right padding to shift text further to the left */
+    box-sizing: border-box;
+}
+
+.brand-title {
+    font-family: 'Reboot Crush', sans-serif;
+    font-size: clamp(0.8rem, 5.5vw, 3.5rem);
+    color: #fcfd00;
+    text-shadow: 0 0 15px #fcfd00;
+    margin: 0;
+    line-height: 1.1;
+    display: block;
+    max-width: 100%;
+}
+
+.brand-subtitle {
+    font-family: 'Glitch Inside', sans-serif;
+    font-size: clamp(0.5rem, 2vw, 1.2rem);
+    color: #fcfd00;
+    text-shadow: 0 0 8px #fcfd00;
+    margin: 5px 0 0 0;
+    letter-spacing: clamp(1px, 0.8vw, 4px);
+}
+
+
+/* Desktop styles for gameplay section */
+@media screen and (min-width: 768px) {
+    .fighter-selection {
+        padding: 40px 20px 20px 20px;
+    }
+
+    .final-call-to-action {
+        padding: 40px 20px;
+    }
+
+    .gameplay-section {
+        flex-direction: row; /* Side-by-side on desktop */
+        justify-content: center;
+        text-align: left;
+        margin-top: 30px; /* Pull section up to reduce space */
+        padding-bottom: 60px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .gameplay-section .gameplay-text {
+        flex: 1;
+        max-width: 500px; /* Allow text to be larger on desktop */
+        text-align: left;
+        padding-right: 30px;
+    }
+
+    .gameplay-section .gameplay-image {
+        flex: 1;
+        max-width: 500px; /* Allow image to be larger on desktop */
+        text-align: left; /* Align image to the left within its flex item */
+        padding-left: 30px;
+    }
+}
+
+/* Gameplay Section Reverse Styles */
+.gameplay-section-reverse {
+    display: flex;
+    flex-direction: column-reverse; /* Stack text above image on mobile */
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px 40px 20px;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .gameplay-section-reverse {
+        flex-direction: row; /* Natural order */
+        justify-content: center;
+        text-align: left;
+        padding-bottom: 60px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    .gameplay-section-reverse .gameplay-image {
+        flex: 1;
+        max-width: 500px;
+        text-align: right;
+        padding-right: 30px;
+    }
+
+    .gameplay-section-reverse .gameplay-text {
+        flex: 1;
+        max-width: 500px;
+        text-align: left;
+        padding-left: 30px;
+    }
+}
+>>>>>>> Stashed changes
